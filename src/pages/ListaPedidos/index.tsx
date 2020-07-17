@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom';
 interface OrdersItems {
     id: string;
     status: string;
+    total: string;
     line_items: [{
         id: number;
         name: string;
+        quantity: number;
         price: string;
     }]
     lenght: number;
@@ -48,13 +50,14 @@ const CreatePoint = () => {
                 {pedidos.map(pedido => (
                     <ul key={pedido.id} onLoad={handleSomaPedidos} className="each-order">
                         <span><strong>ID:</strong> {pedido.id}</span><br/>
-                        <span className="stats-order"><strong>Status:</strong> {pedido.status}</span>
+                        <span className="stats-order"><strong>Status:</strong> {pedido.status}</span><br/>
+                        <span><strong>VALOR TOTAL:</strong> R$ {pedido.total}</span><br/>
 
                         <div className="courses">
                         <p><strong>Cursos Adquiridos:</strong></p>
                         {pedido.line_items.map(item => (
                             <li key={item.id} className="each-item">
-                                <p>{item.name} | Preço: {item.price}</p>
+                                <p>{item.quantity} - {item.name} | Preço: {item.price}</p>
                             </li>
                         ))}
                         </div>
