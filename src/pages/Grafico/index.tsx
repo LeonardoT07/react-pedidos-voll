@@ -13,6 +13,7 @@ const Grafico = () => {
                 </div>
                 <div className="col-3">
                     <Link to="/">
+                        <FiLogIn />
                         <strong>Lista de Pedidos</strong>
                     </Link> 
                 </div>

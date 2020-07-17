@@ -11,12 +11,12 @@ interface OrdersItems {
         name: string;
         price: string;
     }]
+    lenght: number;
 }
 
 const CreatePoint = () => {
 
     const [pedidos, setPedidos] = useState<OrdersItems[]>([]);
-    const [pedidosTotais, setPedidosTotais] = useState(0);
 
     useEffect( () => {
         axios.get<OrdersItems[]>('https://vollpilates.com.br/wp-json/wc/v1/orders?filter[posts_per_page]=-1&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e')
@@ -36,6 +36,7 @@ const CreatePoint = () => {
             <div id="header-pedidos">
                 <div className="col-9">
                     <h1>Lista de Pedidos</h1>
+                    <h3>Total de Pedidos - {pedidos.length}</h3>
                 </div>
                 <div className="col-3">
                     <Link to="/grafico">
@@ -45,7 +46,7 @@ const CreatePoint = () => {
             </div>
             <div className="pedidos">
                 {pedidos.map(pedido => (
-                    <ul key={pedido.id} onChange={handleSomaPedidos} className="each-order">
+                    <ul key={pedido.id} onLoad={handleSomaPedidos} className="each-order">
                         <span><strong>ID:</strong> {pedido.id}</span><br/>
                         <span className="stats-order"><strong>Status:</strong> {pedido.status}</span>
 

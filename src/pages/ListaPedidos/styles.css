@@ -20,6 +20,8 @@
     align-items: center;
 }
 
+#header-pedidos h3 { margin-top: 10px;}
+
 #header-pedidos a {
     width: 100%;
     max-width: 300px;
