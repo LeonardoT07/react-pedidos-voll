@@ -1,0 +1,39 @@
+#header-pedidos {
+    padding: 20px;
+}
+
+div.pedidos {
+    padding-top: 20px;
+    padding-left: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+div.pedidos ul.each-order {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #c8c8c8;
+    width: 100%;
+
+    list-style: none;
+}
+
+ul.each-order li.each-item {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+div.pedidos span.stats-order {
+    text-transform: uppercase;
+}
+
+div.pedidos div.courses {
+    padding-top: 10px;
+}
+
+
+
