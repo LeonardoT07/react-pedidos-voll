@@ -32,12 +32,24 @@ const ChartComponent = () => {
 			setQuantVendidos(quantVendidosVOLL);
         });
 	}, []);
-	
-	
-	const chartData = [{ label: "", y: 0}]
 
-	for (let i = 0; i < produtos.length; i += 1) {
+	/*
+	for (let i = 0; i < produtos.length; i++) {
 		chartData.push({label: produtos[i], y: quantVendidos[i]})
+	}*/
+
+	const chartData = [{ label: "", y: 0}]
+	var valorMaior = 0;
+	var nomeValorMaior = "";
+
+	for (let i = 0; i < 10; i++) {
+		for(let j = 0; j < quantVendidos.length; j++){
+			if(quantVendidos[i] <= quantVendidos[j]){
+				valorMaior = quantVendidos[j];
+				nomeValorMaior = produtos[j];
+			}
+		}
+		chartData.push({label: nomeValorMaior, y: valorMaior})
 	}
 
 	const options = {
