@@ -57,7 +57,7 @@ const ChartComponent2 = () => {
 
 	// Algoritmo para Preencher os Arrys
 	for (let i = 0; i < quantVendidos.length - 1; i++) {
-		if(quantVendidos[i] > 0){
+		if(quantVendidos[i] > 10){
 			chartData.push({label: produtos[i], y: quantVendidos[i]});
 		}
 	}
