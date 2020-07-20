@@ -10,7 +10,7 @@ interface QuantidadeProdutosVendidos {
 	total_sales: number;
 }
 
-const ChartComponent = () => {
+const ChartComponent2 = () => {
 
 	const [produtos, setProdutos] = useState<string[]>([]);
 	const [quantVendidos, setQuantVendidos] = useState<number[]>([]);
@@ -31,12 +31,14 @@ const ChartComponent = () => {
         });
 	}, []);
 
-	const chartData = [];
+
+
+    const chartData = [];
 
 	// Algoritmo para Preencher os Arrys
-	for (let i = 0; i < produtos.length; i++) {
+	for (let i = 0; i < quantVendidos.length; i++) {
 		if(quantVendidos[i] > 0){
-			chartData.push({label: produtos[i], y: quantVendidos[i]})
+			chartData.push({label: produtos[i], y: quantVendidos[i]});
 		}
 	}
 
@@ -59,4 +61,4 @@ const ChartComponent = () => {
 	);
 }
 
-export default ChartComponent;
+export default ChartComponent2;
