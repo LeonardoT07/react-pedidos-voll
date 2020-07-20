@@ -8,9 +8,9 @@ import Grafico from './pages/Grafico';
 const Routes = () => {
     return(
         <BrowserRouter>
-            <Route component={ListaPedidos} path="/" exact />
+            <Route component={Grafico} path="/" exact />
             <Route component={Home} path="/home-segreta"/>
-            <Route component={Grafico} path="/grafico"/>
+            <Route component={ListaPedidos} path="/lista-pedidos"/>
 
         </BrowserRouter>
     );

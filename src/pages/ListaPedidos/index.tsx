@@ -37,7 +37,7 @@ const CreatePoint = () => {
 
                 </div>
                 <div className="col-3">
-                    <Link to="/grafico">
+                    <Link to="/">
                         <strong>Visualizar Gráfico</strong>
                     </Link> 
                 </div>

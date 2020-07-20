@@ -1,7 +1,7 @@
 :root {
     --primary-color: #34cb79;
-    --title-color: #322153;
-    --text-color: #6c6c80;
+    --title-color: #353535;
+    --text-color: #808080;
   }
   
   * {
@@ -11,7 +11,7 @@
   }
   
   body {
-    background: #f0f0f5;
+    background: #fff;
     -webkit-font-smoothing: antialiased;
     color: var(--text-color);
   }
