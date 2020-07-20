@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import './styles.css';
 import CanvasJSReact from '../../assets/canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -76,6 +77,16 @@ const ChartComponent2 = () => {
 
 	return(
 		<div>
+			<div id="chart-options">
+				<div className="options">
+					<ul>
+						<li>Todos</li>
+						<li>Top 10</li>
+						<li>Ordem Crescente</li>
+						<li>Ordem Decrescente</li>
+					</ul>
+				</div>
+			</div>
 			<CanvasJSChart options = {options} />
 		</div>
 	);
