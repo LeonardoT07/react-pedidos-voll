@@ -15,6 +15,11 @@ const ChartComponent2 = () => {
 
 	const [produtos, setProdutos] = useState<string[]>([]);
 	const [quantVendidos, setQuantVendidos] = useState<number[]>([]);
+	const [filtroOptions, setFiltroOptions] = useState(10);
+
+	var chartData = [];
+    var aux, aux2;
+    var troca = true;
 
     useEffect( () => {
         axios.get<NomeProdutos[]>('https://vollpilates.com.br/wp-json/wc/v1/products?filter[posts_per_page]=-1&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e')
@@ -32,15 +37,56 @@ const ChartComponent2 = () => {
         });
 	}, []);
 
-	function handleClickOptions(event: React.MouseEvent<HTMLLIElement>){
-		console.log(event);
+
+	function handleSelectedOption(event: React.MouseEvent<HTMLLIElement, MouseEvent>){
+		if(event.currentTarget.textContent === "Todos"){
+			if(event.currentTarget.className === "ativo"){
+				event.currentTarget.classList.remove("ativo");
+				setFiltroOptions(10);
+				document.getElementById('top10')?.classList.add("ativo");
+			} else {
+				event.currentTarget.classList.add("ativo");
+				setFiltroOptions(quantVendidos.length);
+				document.getElementById('top10')?.classList.remove("ativo");
+			}
+		}
+
+		if(event.currentTarget.textContent === "Top 10"){
+			if(event.currentTarget.className === "ativo"){
+				event.currentTarget.classList.remove("ativo");
+				setFiltroOptions(quantVendidos.length);
+				document.getElementById('todos')?.classList.add("ativo");
+			} else {
+				event.currentTarget.classList.add("ativo");
+				setFiltroOptions(10);
+				document.getElementById('todos')?.classList.remove("ativo");
+			}
+		}
+
+		if(event.currentTarget.textContent === "Ordem Crescente"){
+			if(event.currentTarget.className === "ativo"){
+				event.currentTarget.classList.remove("ativo");
+				console.log("Ordem Decrescente");
+				document.getElementById('desc')?.classList.add("ativo");
+			} else {
+				event.currentTarget.classList.add("ativo");
+				console.log("Ordem Crescente");
+				document.getElementById('desc')?.classList.remove("ativo");
+			}
+		}
+
+		if(event.currentTarget.textContent === "Ordem Decrescente"){
+			if(event.currentTarget.className === "ativo"){
+				event.currentTarget.classList.remove("ativo");
+				console.log("Ordem Crescente");
+				document.getElementById('cres')?.classList.add("ativo");
+			} else {
+				event.currentTarget.classList.add("ativo");
+				console.log("Ordem Decrescente");
+				document.getElementById('cres')?.classList.remove("ativo");
+			}
+		}
 	}
-
-    const chartData = [];
-
-    var aux, aux2;
-    var troca = true;
-
 
     while (troca) {
         troca = false;            
@@ -59,12 +105,11 @@ const ChartComponent2 = () => {
     }
 
 	// Algoritmo para Preencher os Arrys
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < filtroOptions; i++) {
 		if(quantVendidos[i] > 0){
 			chartData.push({label: produtos[i], y: quantVendidos[i]});
 		}
 	}
-
 
 	const options = {
 		title: {
@@ -82,10 +127,16 @@ const ChartComponent2 = () => {
 			<div id="chart-options">
 				<div className="options">
 					<ul>
-						<li onClick={handleClickOptions}>Todos</li>
-						<li className="active">Top 10</li>
-						<li>Ordem Crescente</li>
-						<li>Ordem Decrescente</li>
+						<li id="todos" 
+							onClick={handleSelectedOption}>Todos</li>
+						<li id="top10"
+							className="ativo" 
+							onClick={handleSelectedOption}>Top 10</li>
+						<li id="cres" 
+							onClick={handleSelectedOption}>Ordem Crescente</li>
+						<li id="desc" 
+							className="ativo"
+							onClick={handleSelectedOption}>Ordem Decrescente</li>
 					</ul>
 				</div>
 			</div>

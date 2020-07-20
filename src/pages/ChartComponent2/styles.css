@@ -33,7 +33,7 @@
     background-color: #242424;
 }
 
-.options ul li:active {
+.options ul li.ativo {
     color: #fff;
     background-color: #242424;
 }
