@@ -32,7 +32,9 @@ const ChartComponent2 = () => {
         });
 	}, []);
 
-
+	function handleClickOptions(event: React.MouseEvent<HTMLLIElement>){
+		console.log(event);
+	}
 
     const chartData = [];
 
@@ -80,8 +82,8 @@ const ChartComponent2 = () => {
 			<div id="chart-options">
 				<div className="options">
 					<ul>
-						<li>Todos</li>
-						<li>Top 10</li>
+						<li onClick={handleClickOptions}>Todos</li>
+						<li className="active">Top 10</li>
 						<li>Ordem Crescente</li>
 						<li>Ordem Decrescente</li>
 					</ul>

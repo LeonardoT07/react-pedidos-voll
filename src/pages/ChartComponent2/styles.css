@@ -28,6 +28,11 @@
     cursor: pointer;
 }
 
+.options ul li:hover {
+    color: #fff;
+    background-color: #242424;
+}
+
 .options ul li:active {
     color: #fff;
     background-color: #242424;
