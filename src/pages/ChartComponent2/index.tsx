@@ -35,8 +35,28 @@ const ChartComponent2 = () => {
 
     const chartData = [];
 
+    var aux, aux2;
+    var troca = true;
+
+
+    while (troca) {
+        troca = false;            
+        for (var i = 0; i < quantVendidos.length - 1; i++) {
+            if (quantVendidos[i] > quantVendidos[i + 1]) {
+                aux = quantVendidos[i];
+                quantVendidos[i] = quantVendidos[i + 1];
+                quantVendidos[i + 1] = aux;
+
+                aux2 = produtos[i];
+                produtos[i] = produtos[i + 1];
+                produtos[i + 1] = aux2;
+                troca = true;
+            }
+        }
+    }
+
 	// Algoritmo para Preencher os Arrys
-	for (let i = 0; i < quantVendidos.length; i++) {
+	for (let i = 0; i < quantVendidos.length - 1; i++) {
 		if(quantVendidos[i] > 0){
 			chartData.push({label: produtos[i], y: quantVendidos[i]});
 		}

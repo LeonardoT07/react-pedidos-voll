@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 import { Link } from 'react-router-dom';
-import ChartComponent from '../ChartComponent';
+//import ChartComponent from '../ChartComponent';
 import ChartComponent2 from '../ChartComponent2';
 
 const Grafico = () => {
