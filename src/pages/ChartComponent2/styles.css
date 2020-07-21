@@ -3,14 +3,18 @@
     padding: 20px;
 }
 
-#chart-option .options {
+#chart-option .options,
+#chart-option .periods {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.options ul {
+#chart-option .periods h4 { display: inline-block;}
+
+.options ul,
+.periods ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -18,7 +22,8 @@
 
     list-style: none;
 }
-.options ul li {
+.options ul li,
+.periods ul li {
     color: #242424;
     margin: 10px;
     padding: 5px 10px;
@@ -28,12 +33,36 @@
     cursor: pointer;
 }
 
-.options ul li:hover {
+.options ul li:hover,
+.periods ul li:hover {
     color: #fff;
     background-color: #242424;
 }
 
-.options ul li.ativo {
+.options ul li.ativo,
+.periods ul li.ativo {
     color: #fff;
     background-color: #242424;
+}
+
+.options ul li.desativado,
+.periods ul li.desativado {
+    color: #f8f8f8;
+    background-color: #dadada;
+    border: 1px solid #d8d8d8;
+    cursor: default;
+}
+
+.options ul li.desativado:hover,
+.periods ul li.desativado:hover {
+    color: #f8f8f8;
+    background-color: #dadada;
+}
+
+div#comPeriodo {
+    display: block;
+}
+
+div#semPeriodo {
+    display: block;
 }
