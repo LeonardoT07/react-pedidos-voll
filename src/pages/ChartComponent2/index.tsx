@@ -22,7 +22,6 @@ const ChartComponent2 = () => {
 
 	const [produtosPeriodo, setProdutosPeriodo] = useState<string[]>([]);
 	const [quantVendidosPeriodo, setQuantVendidosPeriodo] = useState<number[]>([]);
-	const [periodo, setPeriodo] = useState("week");
 
 	var chartData = [];
 	var chartData2 = [];
@@ -116,7 +115,7 @@ const ChartComponent2 = () => {
 	function handlePeriodOption(event: React.MouseEvent<HTMLLIElement, MouseEvent>){
 		if(event.currentTarget.textContent === "Uma Semana"){
 			event.currentTarget.classList.add("ativo");
-			setPeriodo("month");
+			console.log("week");
 			document.getElementById('month')?.classList.remove("ativo");
 			document.getElementById('last-month')?.classList.remove("ativo");
 			document.getElementById('year')?.classList.remove("ativo");
@@ -126,11 +125,11 @@ const ChartComponent2 = () => {
 		if(event.currentTarget.textContent === "Um Mês"){
 			if(event.currentTarget.className === "ativo"){
 				event.currentTarget.classList.remove("ativo");
-				setPeriodo("week");
+				console.log("week");
 				document.getElementById('week')?.classList.add("ativo");
 			} else {
 				event.currentTarget.classList.add("ativo");
-				setPeriodo("month");
+				console.log("month");
 				document.getElementById('week')?.classList.remove("ativo");
 				document.getElementById('last-month')?.classList.remove("ativo");
 				document.getElementById('year')?.classList.remove("ativo");
@@ -141,11 +140,11 @@ const ChartComponent2 = () => {
 		if(event.currentTarget.textContent === "Mês Passado"){
 			if(event.currentTarget.className === "ativo"){
 				event.currentTarget.classList.remove("ativo");
-				setPeriodo("week");
+				console.log("week");
 				document.getElementById('week')?.classList.add("ativo");
 			} else {
 				event.currentTarget.classList.add("ativo");
-				setPeriodo("last_month");
+				console.log("last_month");
 				document.getElementById('week')?.classList.remove("ativo");
 				document.getElementById('month')?.classList.remove("ativo");
 				document.getElementById('year')?.classList.remove("ativo");
@@ -156,11 +155,11 @@ const ChartComponent2 = () => {
 		if(event.currentTarget.textContent === "Um Ano"){
 			if(event.currentTarget.className === "ativo"){
 				event.currentTarget.classList.remove("ativo");
-				setPeriodo("week");
+				console.log("week");
 				document.getElementById('week')?.classList.add("ativo");
 			} else {
 				event.currentTarget.classList.add("ativo");
-				setPeriodo("year");
+				console.log("year");
 				document.getElementById('week')?.classList.remove("ativo");
 				document.getElementById('month')?.classList.remove("ativo");
 				document.getElementById('last-month')?.classList.remove("ativo");
