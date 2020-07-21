@@ -45,7 +45,7 @@ const ChartComponent2 = () => {
 	}, []);
 
 	useEffect( () => {
-        axios.get<NomeProdutos[]>(`https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=week&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e`)
+        axios.get<NomeProdutos[]>("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=week&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e")
         .then(response => {
 			const produtosNomePeriodo = response.data.map(order => order.name);
 			setProdutosPeriodo(produtosNomePeriodo);
@@ -60,6 +60,7 @@ const ChartComponent2 = () => {
         });
 	}, []);
 
+	// Função para troca de valores de botões "all" e "top 10"
 	function handleValueOption(event: React.MouseEvent<HTMLLIElement, MouseEvent>){
 		if(event.currentTarget.textContent === "Todos"){
 			if(event.currentTarget.className === "ativo"){
@@ -82,32 +83,6 @@ const ChartComponent2 = () => {
 				event.currentTarget.classList.add("ativo");
 				setFiltroOptions(10);
 				document.getElementById('todos')?.classList.remove("ativo");
-			}
-		}
-	}
-
-	function handleOrderOption(event: React.MouseEvent<HTMLLIElement, MouseEvent>){
-		if(event.currentTarget.textContent === "Ordem Crescente"){
-			if(event.currentTarget.className === "ativo"){
-				event.currentTarget.classList.remove("ativo");
-				console.log("Ordem Decrescente");
-				document.getElementById('desc')?.classList.add("ativo");
-			} else {
-				event.currentTarget.classList.add("ativo");
-				console.log("Ordem Crescente");
-				document.getElementById('desc')?.classList.remove("ativo");
-			}
-		}
-
-		if(event.currentTarget.textContent === "Ordem Decrescente"){
-			if(event.currentTarget.className === "ativo"){
-				event.currentTarget.classList.remove("ativo");
-				console.log("Ordem Crescente");
-				document.getElementById('cres')?.classList.add("ativo");
-			} else {
-				event.currentTarget.classList.add("ativo");
-				console.log("Ordem Decrescente");
-				document.getElementById('cres')?.classList.remove("ativo");
 			}
 		}
 	}
@@ -243,17 +218,10 @@ const ChartComponent2 = () => {
 						<li id="top10"
 							className="ativo" 
 							onClick={handleValueOption}>Top 10</li>
-						<li id="cres"
-							className="desativado" 
-							onClick={handleOrderOption}>Ordem Crescente</li>
-						<li id="desc"
-							className="desativado" 
-							onClick={handleOrderOption}>Ordem Decrescente</li>
 					</ul>
 				</div>
 				<div className="periods">
 					<ul>
-					<h4>Períodos:</h4>
 						<li id="week"
 							className="ativo"
 							onClick={handlePeriodOption}>Uma Semana</li>
