@@ -1,8 +1,9 @@
 import React from 'react';
 import './styles.css';
 import { Link } from 'react-router-dom';
-import ChartComponent from '../ChartGeralComponent';
-import StatusComponent from '../ChartStatusComponent';
+import GeneralChart from '../ChartsComponents/GeneralChart';
+import StatusChart from '../ChartsComponents/StatusChart';
+import PeriodChart from '../ChartsComponents/PeriodChart'
 
 const Grafico = () => {
     return(
@@ -21,8 +22,9 @@ const Grafico = () => {
             </div>
 
             {/* GRAFICO DE PEDIDOS */}
-            <ChartComponent />
-            <StatusComponent />
+            <GeneralChart />
+            <PeriodChart />
+            <StatusChart />
         </div>
     );
 }

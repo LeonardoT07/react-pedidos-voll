@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './styles.css';
-import CanvasJSReact from '../../assets/canvasjs.react';
+import CanvasJSReact from '../../../assets/canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 interface OrdersItems {
