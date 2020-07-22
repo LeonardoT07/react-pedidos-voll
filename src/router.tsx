@@ -11,7 +11,6 @@ const Routes = () => {
             <Route component={Grafico} path="/" exact />
             <Route component={Home} path="/home-segreta"/>
             <Route component={ListaPedidos} path="/lista-pedidos"/>
-
         </BrowserRouter>
     );
 }

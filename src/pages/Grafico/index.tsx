@@ -1,7 +1,8 @@
 import React from 'react';
 import './styles.css';
 import { Link } from 'react-router-dom';
-import ChartComponent from '../ChartComponent';
+import ChartComponent from '../ChartGeralComponent';
+import StatusComponent from '../ChartStatusComponent';
 
 const Grafico = () => {
     return(
@@ -13,7 +14,7 @@ const Grafico = () => {
                     </div>
                     <div className="col-3">
                         <Link to="/lista-pedidos">
-                            <strong>Lista de Pedidos</strong>
+                            <strong>Listar Pedidos</strong>
                         </Link> 
                     </div>
                 </div>
@@ -21,6 +22,7 @@ const Grafico = () => {
 
             {/* GRAFICO DE PEDIDOS */}
             <ChartComponent />
+            <StatusComponent />
         </div>
     );
 }

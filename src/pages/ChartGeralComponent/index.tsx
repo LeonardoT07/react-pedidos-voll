@@ -210,7 +210,8 @@ const ChartComponent2 = () => {
 
 	return(
 		<div>
-			<div id="chart-options">
+			<div className="grafico-info">
+				<h2>Gráfico Geral</h2>
 				<div className="options">
 					<ul>
 						<li id="todos" 
@@ -220,6 +221,11 @@ const ChartComponent2 = () => {
 							onClick={handleValueOption}>Top 10</li>
 					</ul>
 				</div>
+			</div>
+			<CanvasJSChart options = {options} />
+			
+			<div className="grafico-info">
+				<h2>Grafico por Período</h2>
 				<div className="periods">
 					<ul>
 						<li id="week"
@@ -233,11 +239,6 @@ const ChartComponent2 = () => {
 							onClick={handlePeriodOption}>Um Ano</li>
 					</ul>
 				</div>
-			</div>
-			<div id="comPeriodo">
-				<CanvasJSChart options = {options} />
-			</div>
-			<div id="semPeriodo">
 				<CanvasJSChart options = {options2} />
 			</div>
 		</div>
