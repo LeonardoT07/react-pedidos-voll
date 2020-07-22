@@ -133,7 +133,7 @@ const PeriodChart = () => {
 				<div className="periods">
 					<ul>
 						<li id="week"
-							className="desativado"
+							className="ativo"
 							onClick={handlePeriodOption}>Uma Semana</li>
 						<li id="month"
 							className="desativado"
