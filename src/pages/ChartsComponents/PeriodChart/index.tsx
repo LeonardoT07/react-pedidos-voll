@@ -14,32 +14,34 @@ interface QuantidadeProdutosVendidos2 {
 const PeriodChart = () => {
 
 	const [produtosPeriodo, setProdutosPeriodo] = useState<string[]>([]);
-    const [quantVendidosPeriodo, setQuantVendidosPeriodo] = useState<number[]>([]);
-    
+	const [quantVendidosPeriodo, setQuantVendidosPeriodo] = useState<number[]>([]);
+    const [url, setUrl] = useState("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=week&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e");
+	
 	var chartData2 = [];
     var aux, aux2;
     var troca = true;
 
 	useEffect( () => {
-        axios.get<NomeProdutos[]>("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=week&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e")
+        axios.get<NomeProdutos[]>(url)
         .then(response => {
 			const produtosNomePeriodo = response.data.map(order => order.name);
 			setProdutosPeriodo(produtosNomePeriodo);
 		});
-	}, []);
+	});
 
 	useEffect(() => {
-		axios.get<QuantidadeProdutosVendidos2[]>(`https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=week&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e`)
+		axios.get<QuantidadeProdutosVendidos2[]>(url)
         .then(response => {
 			const quantVendidosPeriodo = response.data.map(order => order.quantity);
 			setQuantVendidosPeriodo(quantVendidosPeriodo);
         });
-	}, []);
+	});
 
 	function handlePeriodOption(event: React.MouseEvent<HTMLLIElement, MouseEvent>){
 		if(event.currentTarget.textContent === "Uma Semana"){
 			event.currentTarget.classList.add("ativo");
-			console.log("week");
+			chartData2 = [];
+			setUrl("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=week&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e");
 			document.getElementById('month')?.classList.remove("ativo");
 			document.getElementById('last-month')?.classList.remove("ativo");
 			document.getElementById('year')?.classList.remove("ativo");
@@ -49,11 +51,13 @@ const PeriodChart = () => {
 		if(event.currentTarget.textContent === "Um Mês"){
 			if(event.currentTarget.className === "ativo"){
 				event.currentTarget.classList.remove("ativo");
-				console.log("week");
+				chartData2 = [];
+				setUrl("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=week&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e");
 				document.getElementById('week')?.classList.add("ativo");
 			} else {
 				event.currentTarget.classList.add("ativo");
-				console.log("month");
+				chartData2 = [];
+				setUrl("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=month&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e");
 				document.getElementById('week')?.classList.remove("ativo");
 				document.getElementById('last-month')?.classList.remove("ativo");
 				document.getElementById('year')?.classList.remove("ativo");
@@ -64,11 +68,13 @@ const PeriodChart = () => {
 		if(event.currentTarget.textContent === "Mês Passado"){
 			if(event.currentTarget.className === "ativo"){
 				event.currentTarget.classList.remove("ativo");
-				console.log("week");
+				chartData2 = [];
+				setUrl("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=week&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e");
 				document.getElementById('week')?.classList.add("ativo");
 			} else {
 				event.currentTarget.classList.add("ativo");
-				console.log("last_month");
+				chartData2 = [];
+				setUrl("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=last_month&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e");
 				document.getElementById('week')?.classList.remove("ativo");
 				document.getElementById('month')?.classList.remove("ativo");
 				document.getElementById('year')?.classList.remove("ativo");
@@ -79,11 +85,13 @@ const PeriodChart = () => {
 		if(event.currentTarget.textContent === "Um Ano"){
 			if(event.currentTarget.className === "ativo"){
 				event.currentTarget.classList.remove("ativo");
-				console.log("week");
+				chartData2 = [];
+				setUrl("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=week&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e");
 				document.getElementById('week')?.classList.add("ativo");
 			} else {
 				event.currentTarget.classList.add("ativo");
-				console.log("year");
+				chartData2 = [];
+				setUrl("https://vollpilates.com.br/wp-json/wc/v1/reports/top_sellers?period=year&consumer_key=ck_9dd3ba58c6c5120ceb1de771d08038055da2cb27&consumer_secret=cs_a0bb9ce335fe159a9f9c30c7ebe079ace00bb55e");
 				document.getElementById('week')?.classList.remove("ativo");
 				document.getElementById('month')?.classList.remove("ativo");
 				document.getElementById('last-month')?.classList.remove("ativo");
@@ -136,13 +144,13 @@ const PeriodChart = () => {
 							className="ativo"
 							onClick={handlePeriodOption}>Uma Semana</li>
 						<li id="month"
-							className="desativado"
+							className=""
 							onClick={handlePeriodOption}>Um Mês</li>
 						<li id="last-month"
-							className="desativado"
+							className=""
 							onClick={handlePeriodOption}>Mês Passado</li>
 						<li id="year"
-							className="desativado"
+							className=""
 							onClick={handlePeriodOption}>Um Ano</li>
 					</ul>
 				</div>

@@ -7,7 +7,7 @@ interface OrdersItems {
     status: string;
 }
 
-const ChartStatusComponent = () => {
+const StatusChart = () => {
 
     const [pending, setPending] = useState<string[]>([]);
     const [processing, setProcessing] = useState<string[]>([]);
@@ -69,4 +69,4 @@ const ChartStatusComponent = () => {
     );
 }
 
-export default ChartStatusComponent;
+export default StatusChart;

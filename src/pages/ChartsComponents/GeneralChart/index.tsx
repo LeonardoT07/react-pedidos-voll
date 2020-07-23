@@ -11,7 +11,7 @@ interface QuantidadeProdutosVendidos {
 	total_sales: number;
 }
 
-const ChartComponent2 = () => {
+const GeneralChart = () => {
 
 	const [produtos, setProdutos] = useState<string[]>([]);
 	const [quantVendidos, setQuantVendidos] = useState<number[]>([]);
@@ -116,4 +116,4 @@ const ChartComponent2 = () => {
 	);
 }
 
-export default ChartComponent2;
+export default GeneralChart;
