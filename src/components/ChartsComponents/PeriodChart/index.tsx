@@ -22,7 +22,7 @@ const PeriodChart = () => {
     var troca = true;
 
 	useEffect( () => {
-        axios.get<NomeProdutos[]>(url)
+		axios.get<NomeProdutos[]>(url)
         .then(response => {
 			const produtosNomePeriodo = response.data.map(order => order.name);
 			setProdutosPeriodo(produtosNomePeriodo);

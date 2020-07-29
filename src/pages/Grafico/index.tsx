@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles.css';
 import { Link } from 'react-router-dom';
-import GeneralChart from '../ChartsComponents/GeneralChart';
-import StatusChart from '../ChartsComponents/StatusChart';
-import PeriodChart from '../ChartsComponents/PeriodChart'
+import GeneralChart from '../../components/ChartsComponents/GeneralChart';
+import StatusChart from '../../components/ChartsComponents/StatusChart';
+import PeriodChart from '../../components/ChartsComponents/PeriodChart';
 
 const Grafico = () => {
     return(
